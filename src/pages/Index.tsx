@@ -1,4 +1,5 @@
 import { Clock, Calendar, Github, ExternalLink } from "lucide-react"
+import { useState } from "react"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { RFC3339Display } from "@/components/RFC3339Display"
 import { EducationalContent } from "@/components/EducationalContent"
@@ -6,8 +7,32 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const Index = () => {
+  const [showLightbox, setShowLightbox] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
+      {/* Lightbox */}
+      {showLightbox && (
+        <div 
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center"
+          onClick={() => setShowLightbox(false)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] p-4">
+            <img 
+              src="/logo.png" 
+              alt="RFC 3339 Explorer Logo" 
+              className="w-full h-auto object-contain rounded-lg shadow-2xl"
+            />
+            <button
+              onClick={() => setShowLightbox(false)}
+              className="absolute top-2 right-2 w-8 h-8 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black/70 transition-colors"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
@@ -21,6 +46,21 @@ const Index = () => {
                 <p className="text-sm text-muted-foreground">Date and Time on the Internet</p>
               </div>
             </div>
+            
+            {/* Center Logo */}
+            <div className="flex-1 flex justify-center">
+              <div 
+                className="cursor-pointer group transition-transform duration-300 hover:scale-110"
+                onClick={() => setShowLightbox(true)}
+              >
+                <img 
+                  src="/logo.png" 
+                  alt="RFC 3339 Explorer Logo" 
+                  className="h-12 w-auto opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            </div>
+            
             <div className="flex items-center gap-3">
               <Button
                 variant="outline"
