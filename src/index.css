@@ -38,16 +38,16 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Rainbow colors for nerdy aesthetic */
-    --rainbow-red: 0 100% 70%;
-    --rainbow-orange: 30 100% 70%;
-    --rainbow-yellow: 60 100% 70%;
-    --rainbow-green: 120 100% 70%;
-    --rainbow-blue: 240 100% 70%;
-    --rainbow-indigo: 270 100% 70%;
-    --rainbow-violet: 300 100% 70%;
+    /* Rainbow colors for nerdy aesthetic - darker for light mode */
+    --rainbow-red: 0 100% 25%;
+    --rainbow-orange: 30 100% 30%;
+    --rainbow-yellow: 60 100% 35%;
+    --rainbow-green: 120 100% 25%;
+    --rainbow-blue: 240 100% 30%;
+    --rainbow-indigo: 270 100% 25%;
+    --rainbow-violet: 300 100% 30%;
 
-    /* Gradients */
+    /* Gradients - darker for light mode */
     --gradient-rainbow: linear-gradient(
       135deg,
       hsl(var(--rainbow-red)),
@@ -58,8 +58,8 @@ All colors MUST be HSL.
       hsl(var(--rainbow-indigo)),
       hsl(var(--rainbow-violet))
     );
-    --gradient-primary: linear-gradient(135deg, hsl(280 100% 70%), hsl(240 100% 70%));
-    --gradient-accent: linear-gradient(135deg, hsl(330 100% 85%), hsl(280 100% 85%));
+    --gradient-primary: linear-gradient(135deg, hsl(280 100% 25%), hsl(240 100% 30%));
+    --gradient-accent: linear-gradient(135deg, hsl(330 100% 30%), hsl(280 100% 25%));
 
     /* Code/mono colors */
     --code-bg: 240 10% 96%;
