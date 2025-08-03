@@ -14,7 +14,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg gradient-rainbow flex items-center justify-center">
-                <Clock className="h-6 w-6 text-white" />
+                <Clock className="h-6 w-6 dark:text-black text-white" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gradient-rainbow">RFC 3339 Explorer</h1>
