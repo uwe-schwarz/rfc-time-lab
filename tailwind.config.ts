@@ -61,7 +61,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				rainbow: {
+					red: 'hsl(var(--rainbow-red))',
+					orange: 'hsl(var(--rainbow-orange))',
+					yellow: 'hsl(var(--rainbow-yellow))',
+					green: 'hsl(var(--rainbow-green))',
+					blue: 'hsl(var(--rainbow-blue))',
+					indigo: 'hsl(var(--rainbow-indigo))',
+					violet: 'hsl(var(--rainbow-violet))'
 				}
+			},
+			fontFamily: {
+				mono: ['ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', 'Liberation Mono', 'Menlo', 'monospace'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
