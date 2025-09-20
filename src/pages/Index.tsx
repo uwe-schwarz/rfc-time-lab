@@ -145,7 +145,7 @@ const Index = () => {
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center gap-4">
               <p className="text-sm text-muted-foreground">
-                Made with ❤️ for the developer community
+                A 🤖 made this. 🌈 on purpose!
               </p>
             </div>
             <p className="text-xs text-muted-foreground">
