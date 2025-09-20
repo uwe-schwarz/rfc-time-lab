@@ -5,12 +5,13 @@ import { RFC3339Display } from "@/components/RFC3339Display"
 import { EducationalContent } from "@/components/EducationalContent"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import LiquidEther from '@/components/LiquidEther';
 
 const Index = () => {
   const [showLightbox, setShowLightbox] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       {/* Lightbox */}
       {showLightbox && (
         <div 
