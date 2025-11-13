@@ -3,6 +3,7 @@ import { useState } from "react"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { RFC3339Display } from "@/components/RFC3339Display"
 import { EducationalContent } from "@/components/EducationalContent"
+import AnalogClock from "@/components/AnalogClock"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import LiquidEther from '@/components/LiquidEther';
@@ -11,7 +12,7 @@ const Index = () => {
   const [showLightbox, setShowLightbox] = useState(false);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       {/* Lightbox */}
       {showLightbox && (
         <div 
@@ -154,6 +155,7 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      <AnalogClock />
     </div>
   );
 };
