@@ -24,14 +24,21 @@ const AnalogClock = () => {
   const [time, setTime] = useState(() => new Date());
 
   useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), SECOND_INTERVAL_MS);
-    return () => clearInterval(interval);
-  }, []);
+    let frame: number;
+  
+    const tick = () => {
+      setTime(new Date());
+      frame = requestAnimationFrame(tick);
+    };
+  
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, []);  
 
   const secondAngle = useMemo(
     () => time.getSeconds() * 6 + time.getMilliseconds() * 0.006,
-    [time],
-  );
+    [time]
+  );  
   const minuteAngle = useMemo(
     () => time.getMinutes() * 6 + time.getSeconds() * 0.1,
     [time],
@@ -109,7 +116,7 @@ const AnalogClock = () => {
           />
 
           {/* Digital time */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.2em] text-foreground/80">
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.2em] text-gradient-rainbow">
             {digitalTime}
           </div>
         </div>
