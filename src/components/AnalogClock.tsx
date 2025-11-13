@@ -45,12 +45,12 @@ const AnalogClock = () => {
 
   return (
     <div className="fixed bottom-6 right-6 z-40 pointer-events-none">
-      <div className="w-40 h-40 p-1 rounded-full bg-gradient-to-br from-[#ff48c4] via-[#ffd64d] to-[#57ecff] shadow-[0_0_40px_rgba(255,255,255,0.35)]">
+      <div className="w-40 h-40 p-1 rounded-full gradient-rainbow shadow-[0_0_40px_rgba(255,255,255,0.25)] dark:shadow-[0_0_40px_rgba(255,255,255,0.1)]">
         <div
-          className="relative w-full h-full rounded-full border border-white/20 shadow-[inset_0_0_40px_rgba(0,0,0,0.8)] overflow-hidden"
+          className="relative w-full h-full rounded-full border border-border shadow-[inset_0_0_40px_rgba(0,0,0,0.6)] overflow-hidden"
           style={{
             background:
-              "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25), transparent 45%), radial-gradient(circle at 60% 40%, rgba(255,255,255,0.18), transparent 40%), #05030b",
+              "radial-gradient(circle at 30% 20%, hsl(var(--foreground)/0.15), transparent 45%), radial-gradient(circle at 60% 40%, hsl(var(--foreground)/0.10), transparent 40%), hsl(var(--background))",
           }}
         >
           <div className="absolute inset-0">
@@ -59,8 +59,9 @@ const AnalogClock = () => {
               return (
                 <span
                   key={angle}
-                  className="absolute w-[2px] h-3 rounded-full bg-white/70"
+                  className="absolute w-[2px] h-3 rounded-full"
                   style={{
+                    backgroundColor: "hsl(var(--foreground) / 0.7)",
                     left: "50%",
                     bottom: "50%",
                     transform: `translateX(-50%) rotate(${angle}deg) translateY(-100%)`,
@@ -71,32 +72,44 @@ const AnalogClock = () => {
             })}
           </div>
 
+          {/* Second hand */}
           <span
-            className="absolute left-1/2 bottom-1/2 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+            className="absolute left-1/2 bottom-1/2 rounded-full"
             style={{
               width: "2px",
-              ...handStyle(secondAngle, "40%", "#ffe066"),
+              ...handStyle(secondAngle, "40%", "hsl(var(--rainbow-yellow))"),
             }}
           />
+
+          {/* Minute hand */}
           <span
-            className="absolute left-1/2 bottom-1/2 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.4)]"
+            className="absolute left-1/2 bottom-1/2 rounded-full"
             style={{
               width: "4px",
               borderRadius: "999px",
-              ...handStyle(minuteAngle, "33%", "#a5f3fc"),
+              ...handStyle(minuteAngle, "33%", "hsl(var(--rainbow-blue))"),
             }}
           />
+
+          {/* Hour hand */}
           <span
             className="absolute left-1/2 bottom-1/2 rounded-full"
             style={{
               width: "5px",
-              ...handStyle(hourAngle, "25%", "#f472b6"),
+              ...handStyle(hourAngle, "25%", "hsl(var(--rainbow-violet))"),
             }}
           />
 
-          <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" />
+          {/* Center dot */}
+          <div className="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
+               style={{
+                 backgroundColor: "hsl(var(--foreground))",
+                 boxShadow: "0 0 10px hsl(var(--foreground) / 0.8)"
+               }}
+          />
 
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.2em] text-white/80">
+          {/* Digital time */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.2em] text-foreground/80">
             {digitalTime}
           </div>
         </div>
